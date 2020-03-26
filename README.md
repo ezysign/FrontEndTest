@@ -3,7 +3,7 @@
 # EzySign FrontEndTest
 - Build the basic login form using api and simple home page displaying list of resources from api  using React.
 - You may choose your 3rd party libraries of your choice. 
-- For API you may use reqres.in 
+- For API you may use https://reqres.in/ 
 - For UI you may use third party libraries like [https://ant.design/](https://ant.design/) or [https://material-ui.com/](https://material-ui.com/) or [https://semantic-ui.com/](https://semantic-ui.com/)
 
 **Route table**
