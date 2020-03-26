@@ -1,1 +1,22 @@
-# FrontEndTest
+
+
+# EzySign FrontEndTest
+- Build the basic login form using api and simple home page displaying list of resources from api  using React.
+- You may choose your 3rd party libraries of your choice. 
+- For API you may use reqres.in 
+- For UI you may use third party libraries like [https://ant.design/](https://ant.design/) or [https://material-ui.com/](https://material-ui.com/) or [https://semantic-ui.com/](https://semantic-ui.com/)
+
+**Route table**
+| Route | path |
+|--|--|
+| /login | login |
+| /home | home |
+
+
+for displaying list of resource for home page you may use [LIST <RESOURCE>](https://reqres.in/api/unknown) 
+
+Please provide the setup procedures or documentation if project needs some extra steps.
+
+Please Fork the repo and submit PR with title in following format
+
+NAME: FrontendTest
