@@ -20,6 +20,10 @@ for displaying list of resource for home page you may use [LIST <RESOURCE>](http
 
 Please provide the setup procedures or documentation if project needs some extra steps.
 
+# Your assignment will get chances to get accepted if
+- follow granular git commit history
+- has good unit test
+
 Please Fork the repo and submit PR with title in following format
 
 `NAME: FrontendTest`
