@@ -22,6 +22,7 @@ Please provide the setup procedures or documentation if project needs some extra
 
 # Your assignment will get chances to get accepted if
 - follow granular git commit history.Please refer [here](https://github.com/trein/dev-best-practices/wiki/Git-Commit-Best-Practices)
+- proper unit tests were provided
 
 Please Fork the repo and submit PR with title in following format
 
