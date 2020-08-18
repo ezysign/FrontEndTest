@@ -39,6 +39,23 @@ function Login() {
     mode: 'onChange'
   })
 
+  const handleLogin = async (data) => {
+    const {email,password} = data
+    const requestOptions = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({email: email, password: password})
+    }
+    await fetch('https://reqres.in/api/login',requestOptions)
+    .then (res => res.json())
+    .then(data => {localStorage.setItem('token' , data.token)
+    if (data.token){
+      history.replace("/")
+    }
+  }).catch(error => {
+    setError({errorMessage: error})
+  })
+  }
 
 
   return (
