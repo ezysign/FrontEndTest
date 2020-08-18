@@ -50,7 +50,7 @@ function Login() {
     .then (res => res.json())
     .then(data => {localStorage.setItem('token' , data.token)
     if (data.token){
-      history.replace("/")
+      history.replace("/home")
     }
   }).catch(error => {
     setError({errorMessage: error})

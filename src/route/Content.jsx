@@ -18,7 +18,7 @@ function Content() {
   return (
     <BrowserRouter>
       <Switch>
-        <ProtectedRoute exact path="/" component={Home} logged={logged} setLogged={setLogged} />
+        <ProtectedRoute exact path="/home" component={Home} logged={logged} setLogged={setLogged} />
         <Route exact path="/login" render={props => (<Login {...props} logged={logged} setLogged={setLogged} />)} />
       </Switch>
     </BrowserRouter>
