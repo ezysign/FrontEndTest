@@ -1,7 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { Controller, useForm } from "react-hook-form";
-import { TextField, createStyles, makeStyles, Grid, Container, Button, Box, Paper, Typography, } from '@material-ui/core'
-import {Redirect, useHistory} from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import {
+  TextField,
+  createStyles,
+  makeStyles,
+  Grid,
+  Container,
+  Button,
+  Box,
+  Paper,
+  Typography,
+} from '@material-ui/core';
+import { Redirect, useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -9,7 +19,7 @@ const useStyles = makeStyles((theme) =>
       paddingTop: '3%',
       display: 'flex',
       flex: 1,
-      height: '100%'
+      height: '100%',
     },
     loginPanel: {
       margin: '0 auto',
@@ -17,58 +27,63 @@ const useStyles = makeStyles((theme) =>
       marginLeft: 'auto',
       display: 'flex',
       alignItems: 'center',
-      justify: 'center'
+      justify: 'center',
     },
     textField: {
-      textAlign: 'center'
+      textAlign: 'center',
     },
     loginButton: {
-      marginTop: '5%'
+      marginTop: '5%',
     },
     spacing: {
-      height: '10%'
-    }
-  })
-)
+      height: '10%',
+    },
+  }),
+);
 
 function Login() {
   const history = useHistory();
   const classes = useStyles();
   const [error, setError] = useState(null);
   const { control, handleSubmit, errors } = useForm({
-    mode: 'onChange'
-  })
+    mode: 'onChange',
+  });
 
   const handleLogin = async (data) => {
-    const {email,password} = data
+    const { email, password } = data;
     const requestOptions = {
       method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({email: email, password: password})
-    }
-    await fetch('https://reqres.in/api/login',requestOptions)
-    .then (res => res.json())
-    .then(data => {localStorage.setItem('token' , data.token)
-    if (data.token){
-      history.replace("/home")
-    }
-  }).catch(error => {
-    setError({errorMessage: error})
-  })
-  }
-
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, password: password }),
+    };
+    await fetch('https://reqres.in/api/login', requestOptions)
+      .then((res) => res.json())
+      .then((data) => {
+        localStorage.setItem('token', data.token);
+        if (data.token) {
+          history.replace('/home');
+        }
+      })
+      .catch((error) => {
+        setError({ errorMessage: error });
+      });
+  };
 
   return (
-    <Container maxWidth={false} style={{ height: "100%" }}>
-      <Container maxWidth="sm" style={{ paddingTop: "3%", }}>
+    <Container maxWidth={false} style={{ height: '100%' }}>
+      <Container maxWidth='sm' style={{ paddingTop: '3%' }}>
         <Box height='200px' />
-        <Paper elevation={2} style={{ margin: "10%" }}>
-          <Box flexDirection="column" justifyContent="center" alignItems='center' style={{ padding: "10%" }}>
+        <Paper elevation={2} style={{ margin: '10%' }}>
+          <Box
+            flexDirection='column'
+            justifyContent='center'
+            alignItems='center'
+            style={{ padding: '10%' }}>
             <Controller
               as={TextField}
-              label="Email"
+              label='Email'
               fullWidth
-              name="email"
+              name='email'
               className={classes.textField}
               control={control}
               rules={{
@@ -77,12 +92,12 @@ function Login() {
               }}
               error={!!errors.username}
               helperText={
-                  errors.username &&
-                    (errors.email?.type === 'pattern'
-                     ? 'Invalid Email format'
-                     : 'Please enter registered email')
+                errors.username &&
+                (errors.email?.type === 'pattern'
+                  ? 'Invalid Email format'
+                  : 'Please enter registered email')
               }
-              defaultValue=""
+              defaultValue=''
             />
             <Controller
               as={TextField}
@@ -99,17 +114,27 @@ function Login() {
               helperText={errors.password?.message}
               defaultValue=''
             />
-            <Box display="flex" justifyContent="center">
-            {error && <Typography variant='body1' color='error'>{error.toString()}</Typography> }
+            <Box display='flex' justifyContent='center'>
+              {error && (
+                <Typography variant='body1' color='error'>
+                  {error.toString()}
+                </Typography>
+              )}
             </Box>
-            <Box display="flex" justifyContent="space-between">
-              <Button fullWidth variant='contained' className={classes.loginButton} onClick={handleSubmit(handleLogin)}>Login</Button>
+            <Box display='flex' justifyContent='space-between'>
+              <Button
+                fullWidth
+                variant='contained'
+                className={classes.loginButton}
+                onClick={handleSubmit(handleLogin)}>
+                Login
+              </Button>
             </Box>
           </Box>
         </Paper>
       </Container>
     </Container>
-  )
+  );
 }
 
 export default Login;
