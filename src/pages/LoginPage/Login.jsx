@@ -12,6 +12,7 @@ import {
 } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import './Login.css';
+import auth from '../../model/auth';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -59,7 +60,7 @@ function Login() {
     await fetch('https://reqres.in/api/login', requestOptions)
       .then((res) => res.json())
       .then((data) => {
-        localStorage.setItem('token', data.token);
+        auth.token = data.token;
         if (data.token) {
           history.push('/home');
         }

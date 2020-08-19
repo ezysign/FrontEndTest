@@ -6,15 +6,6 @@ import ProtectedRoute from './ProtectedRoute';
 
 function Content() {
   const [logged, setLogged] = useState(false);
-  const token = localStorage.getItem('token');
-
-  useEffect(() => {
-    if (token) {
-      setLogged(true);
-    } else {
-      setLogged(false);
-    }
-  }, [token]);
 
   return (
     <BrowserRouter>
