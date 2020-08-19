@@ -1,10 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Content from './route/Content';
+import { ThemeProvider } from '@material-ui/core';
+import { theme } from './theme/Theme';
 
 function App() {
-  return <Content />;
+  return (
+    <ThemeProvider theme={theme}>
+      <Content />
+    </ThemeProvider>
+  );
 }
 
 export default App;
