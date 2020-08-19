@@ -13,8 +13,9 @@ import {
 import { FiberManualRecord, ExitToApp } from '@material-ui/icons';
 import MaterialTable from 'material-table';
 import { useHistory } from 'react-router-dom';
+import { theme } from '../../theme/Theme';
 
-const useStyles = makeStyles((theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     root: {},
   }),
@@ -73,8 +74,8 @@ function Home() {
               <Typography>HOME</Typography>
             </Grid>
             <Grid item xs={1}>
-              <IconButton onClick={handleLogout}>
-                <ExitToApp style={{ color: 'whitesmoke' }} />
+              <IconButton onClick={handleLogout} size='medium'>
+                <ExitToApp fontSize='small' />
               </IconButton>
             </Grid>
           </Grid>
@@ -83,9 +84,11 @@ function Home() {
       <Container maxWidth='md' style={{ marginTop: '10%' }}>
         {userList && (
           <MaterialTable
+            style={{ color: theme.palette.secondary }}
             title='Colour List'
             data={userList.data}
             columns={columns}
+            onRowClick={() => {}}
             components={{
               Pagination: (pageProps) => (
                 <TablePagination

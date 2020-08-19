@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import {
   TextField,
   createStyles,
   makeStyles,
-  Grid,
   Container,
   Button,
   Box,
   Paper,
   Typography,
 } from '@material-ui/core';
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import './Login.css';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -61,7 +61,7 @@ function Login() {
       .then((data) => {
         localStorage.setItem('token', data.token);
         if (data.token) {
-          history.replace('/home');
+          history.push('/home');
         }
       })
       .catch((error) => {
@@ -92,7 +92,7 @@ function Login() {
               }}
               error={!!errors.username}
               helperText={
-                errors.username &&
+                errors.email &&
                 (errors.email?.type === 'pattern'
                   ? 'Invalid Email format'
                   : 'Please enter registered email')
@@ -125,6 +125,7 @@ function Login() {
               <Button
                 fullWidth
                 variant='contained'
+                color='primary'
                 className={classes.loginButton}
                 onClick={handleSubmit(handleLogin)}>
                 Login
