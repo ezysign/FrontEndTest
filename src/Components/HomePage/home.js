@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-import fetch from "node-fetch";
-
-import { Button } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
+import Butt from "../button/Button";
+import { getData } from "./data";
 
 import "./home.scss";
 
@@ -35,49 +34,29 @@ export default function Home(props) {
   };
 
   useEffect(() => {
-    fetch(url)
-      .then((data) => data.json())
-      .then((json) => {
-        setData({
-          color: json.data[num].color,
-          id: json.data[num].id,
-          name: json.data[num].name,
-          pantoneValue: json.data[num].pantoneValue,
-          year: json.data[num].year,
-          total: json.data.length,
-        });
-      });
+    getData(url, num, setData);
   }, [num]);
-
-  module.export = { increment, decrement };
 
   return (
     <div className="container">
-      <div className="Data">
+      <div className="Data" data-testid="data">
         <div>Name : {data.name}</div>
-        <div>Id : {data.id}</div>
+        <div data-testid="id">Id : {data.id}</div>
         <div>Pantone Value : {data.pantoneValue}</div>
         <div>Color : {data.color}</div>
         <div>Year : {data.year}</div>
 
         <div className="buttgroup">
-          <Button variant="contained" color="primary" onClick={decrement}>
-            Back
-          </Button>
-          <Button variant="contained" color="primary" onClick={increment}>
-            Next
-          </Button>
+          <Butt text="Back" fucntion={decrement} />
+          <Butt text="Next" function={increment} />
         </div>
         <NavLink className="link" exact to={process.env.PUBLIC_URL + "/login"}>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => {
+          <Butt
+            text="Log Out"
+            function={() => {
               setAppState({ loading: false, logged: false, msg: "" });
             }}
-          >
-            Log Out
-          </Button>
+          />
         </NavLink>
       </div>
     </div>
