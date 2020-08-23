@@ -1,26 +1,44 @@
-import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { increase } from "../increment";
+import { decrease } from "../decrement";
 
-import Home from "../home";
-import { getData } from "../data";
+const getData = jest.fn(async () => {
+  return Promise.resolve({
+    json: () =>
+      Promise.resolve([
+        {
+          id: 1,
+          name: "cerulean",
+          year: 2000,
+          color: "#98B2D1",
+          pantone_value: "15-4020",
+        },
+        {
+          id: 2,
+          name: "fuchsia rose",
+          year: 2001,
+          color: "#C74375",
+          pantone_value: "17-2031",
+        },
+      ]),
+  });
+});
 
-import { render, fireEvent, getByTestId } from "@testing-library/react";
+test("api calls", async () => {
+  let response = await getData("https://reqres.in/api/unknown");
+  let data = await response.json();
 
-test("render the correct contemt", () => {
-  const { getByText, getByTestId } = render(
-    <BrowserRouter>
-      <Home
-        appState={{
-          loading: false,
-          logged: false,
-          msg: "",
-        }}
-      />
-    </BrowserRouter>
-  );
+  expect(data[0].id).toBe(1);
+  expect(data[0].name).toBe("cerulean");
+  expect(data[1].id).toBe(2);
+  expect(data[1].name).toBe("fuchsia rose");
+});
 
-  getByTestId("data");
-  getByText("Log Out");
-  getByText("Next");
-  getByText("Back");
+test("next button increments index", () => {
+  expect(increase(1, 6)).toBe(2);
+  expect(increase(5, 6)).toBe(0);
+});
+
+test("back button decrements index", () => {
+  expect(decrease(1, 6)).toBe(0);
+  expect(decrease(0, 6)).toBe(5);
 });

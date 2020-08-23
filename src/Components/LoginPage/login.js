@@ -21,7 +21,21 @@ export default function Login(props) {
       msg: appState.msg,
     });
 
-    getData(url, setAppState, user);
+    let response = getData(url, user);
+
+    if (response === 200) {
+      setAppState({
+        loading: false,
+        logged: true,
+        msg: "",
+      });
+    } else {
+      setAppState({
+        loading: false,
+        logged: false,
+        msg: "Missing/Incorrect Email or Password",
+      });
+    }
   };
 
   return (
