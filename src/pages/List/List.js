@@ -8,7 +8,7 @@ function List({ data, getList, loading }) {
 
     useEffect(() => {
         getList();
-    })
+    }, [getList])
 
     const CardWrapper = styled.div`
         display : flex;
