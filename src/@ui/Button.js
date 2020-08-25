@@ -16,7 +16,6 @@ const button_sizes = {
   `
 };
 
-// type IStyledButton = StyledButtonProps & React.HTMLAttributes<HTMLDivElement>;
 
 const StyledButton = styled.button`
   width: ${p => p.width};
