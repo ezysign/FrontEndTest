@@ -1,8 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import axios from "axios";
 import registerIcons from "./fontLib";
-import { actions } from "./store/ducks/auth.duck";
 import "./styles/fontStyles.css";
 
 import store, { persistor } from "./store/store";

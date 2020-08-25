@@ -7,8 +7,8 @@ import ListCard from '../../components/ListCard/ListCard'
 function List({ data, getList, loading }) {
 
     useEffect(() => {
-        getList()
-    }, [])
+        getList();
+    })
 
     const CardWrapper = styled.div`
         display : flex;
@@ -18,14 +18,14 @@ function List({ data, getList, loading }) {
     `
     const renderList = () => {
 
-        if (data && data.length === 0 ) return <div> Empty </div>;
+        if (data && data.length === 0) return <div> Empty </div>;
 
 
         return (
             <>
                 {loading && <div>Loading</div>}
 
-                {data &&  data.data
+                {data && data.data
                     .map((item) => {
                         return (
                             <ListCard

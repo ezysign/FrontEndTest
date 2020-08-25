@@ -2,7 +2,6 @@ import React from "react";
 import styled, { css } from "styled-components/macro";
 
 import Flex from "./Flex";
-import { VariantTypes } from "./colorVariants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 

@@ -1,4 +1,3 @@
-import history from "../../utils/history";
 import { put, takeLatest } from "redux-saga/effects";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";

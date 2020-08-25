@@ -1,7 +1,4 @@
-import history from "../../utils/history";
-import { put, takeLatest, takeEvery } from "redux-saga/effects";
-import { persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+import { put, takeLatest } from "redux-saga/effects";
 
 import http from "../../utils/httpInstance";
 

@@ -1,9 +1,25 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+import axios from 'axios'
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+const user = {
+
+  "email": "eve.holt@reqres.in",
+  "password": "cityslicka"
+
+}
+
+describe('user', () => {
+
+  it('login', async () => {
+
+    let { status } = await axios.post('https://reqres.in/api/login', user);
+    expect(status).toEqual(200);
+  });
+
+  it('list', async () => {
+
+    let { status } = await axios.get('https://reqres.in/api/users');
+    expect(status).toEqual(200);
+  });
 });
+
+

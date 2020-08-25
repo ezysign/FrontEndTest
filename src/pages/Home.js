@@ -1,4 +1,4 @@
-import React, { useEffect ,Suspense} from 'react'
+import React, { Suspense} from 'react'
 import { Redirect, Route, Switch } from "react-router-dom";
 
 import List from './List/List'
