@@ -1,0 +1,63 @@
+{
+  "name": "frontendtest",
+  "version": "1.0.0",
+  "description": "- Build the basic login form using api and simple home page displaying list of resources from api  using React. - You may choose your 3rd party libraries of your choice.  - For API you may use https://reqres.in/  - For UI you may use one of the following third party libraries like    - [https://ant.design/](https://ant.design/)    - [https://material-ui.com/](https://material-ui.com/)   - [https://semantic-ui.com/](https://semantic-ui.com/)",
+  "main": "index.js",
+  "proxy": "https://reqres.in",
+  "scripts": {
+    "start": "PORT=3000 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xkill119966/FrontEndTest.git"
+  },
+  "author": "Thu Rein",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-brands-svg-icons": "^5.14.0",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "@material-ui/core": "^4.11.0",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.19.2",
+    "axios-mock-adapter": "^1.18.2",
+    "formik": "^2.1.5",
+    "history": "^5.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-masonry-css": "^1.0.14",
+    "react-notify-toast": "^0.5.1",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-router-last-location": "^2.0.1",
+    "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "redux-persist": "^6.0.0",
+    "redux-saga": "^1.1.3",
+    "styled-components": "^5.1.1",
+    "yup": "^0.29.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.4"
+  }
+}
